@@ -1,0 +1,11 @@
+%dw 2.0
+
+type auto_b8ac8db7_678f_4003_978e_3e7f02ab57ea_Input_Payload = {
+  alerts?: Array<{    type_alert: "BOCR" | "NCID",     _?: Any  }>, 
+  file_64?: String, 
+  order_id?: String, 
+  articles?: Array<{    article_id: String,     number: Number,     _?: Any  }>, 
+  client_id?: String, 
+  _?: Any
+}
+

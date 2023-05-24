@@ -1,0 +1,10 @@
+%dw 2.0
+
+type auto_e01b8019_5373_454f_925f_9946a87c191d_Output_Payload = Array<{  alerts?: Array<{    type_alert: "BOCR" | "NCID",     _?: Any  }>, 
+  file_64?: String, 
+  order_id?: String, 
+  articles?: Array<{    article_id: String,     number: Number,     _?: Any  }>, 
+  client_id?: String, 
+  _?: Any
+}>
+
