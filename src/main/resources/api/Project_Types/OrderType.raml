@@ -1,0 +1,24 @@
+#%RAML 1.0 DataType
+
+uses:
+  data_shapes: DataShape.raml
+  
+type: object
+properties:
+  order_id:
+    type: string
+    required: false
+  client_id:
+    type: string
+    required: false
+  articles:
+    type: array
+    items: data_shapes.Article
+    required: false
+  alerts:
+     type: array
+     items: data_shapes.Alert
+     required: false
+  file_64:
+    type: string
+    required: false   

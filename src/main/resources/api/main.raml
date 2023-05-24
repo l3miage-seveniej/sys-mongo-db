@@ -1,0 +1,52 @@
+#%RAML 1.0
+title: sys-mongo-db-api-specification-main
+
+types: 
+  Order: !include Project_Types/OrderType.raml
+
+/clients:
+  get:
+    description: Get All  client_id
+    responses:
+      200:
+        body:
+          application/json:
+            type: array
+            examples:
+              output : !include Project_Types_Exemple/listeClientID.json
+
+/orders:
+  get:
+    description: Get All order from client_id
+    queryParameters:
+      client_id:
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            type: Order[]
+            examples:
+              output: !include Project_Types_Exemple/listeOrder.json
+              
+  /{OID}:
+    get:
+      description: Get an order
+      responses:
+        200:
+          body:
+            application/json:
+              type: Order
+              examples:
+                output: !include Project_Types_Exemple/order.json
+        
+    post:
+      description: Post an order
+      body:
+        application/json:
+          type: Order
+          examples:
+            output: !include Project_Types_Exemple/order.json
+
+              
+              
