@@ -41,12 +41,9 @@ output application/json
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
-payload map ((val, pos) ->
-	val mapObject
-	{
-		'$$': $
-	} 
-	- "_id"
+payload map ((item, index) ->
+	 
+	item - "_id"
 )]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
@@ -65,12 +62,9 @@ output application/json
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
-payload map ((val, pos) ->
-	val mapObject
-	{
-		'$$': $
-	} 
-	- "_id"
+payload map ((item, index) ->
+	 
+	item - "_id"
 )]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>

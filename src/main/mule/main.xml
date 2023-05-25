@@ -124,15 +124,15 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\clients:main-config">
-		<flow-ref doc:name="GetClients" doc:id="c75419dc-2cf5-468c-a657-d93a3b5d3db1" name="GetClients"/>
+		<flow-ref doc:name="GetClients" doc:id="4900dd1f-9c66-4843-9fba-9683fe184471" name="GetClients"/>
     </flow>
     <flow name="get:\orders:main-config">
-		<flow-ref doc:name="GetOrdersByClientID" doc:id="7296a77f-84ec-4f4d-9d58-85b243afd4d9" name="GetOrdersByClientID"/>
+		<flow-ref doc:name="GetOrdersByClientID" doc:id="2c5ac26b-81ce-4c34-b3e1-8562b9442e83" name="GetOrdersByClientID"/>
     </flow>
     <flow name="get:\orders\(OID):main-config">
-		<flow-ref doc:name="GetOrderByOrederID" doc:id="8735885a-52d9-42b1-ba5e-b254ff6175d2" name="GetOrderByOrederID"/>
+		<flow-ref doc:name="GetOrderByOrederID" doc:id="398c3596-ff48-4f7d-b6e2-c44bcdc27be3" name="GetOrderByOrederID"/>
     </flow>
     <flow name="post:\orders\(OID):application\json:main-config">
-		<flow-ref doc:name="PostOrder" doc:id="a555b14d-92ff-4118-8c0f-d757a59db0b8" name="PostOrder"/>
+		<flow-ref doc:name="PostOrder" doc:id="607a01b7-4020-4996-ad5d-bd4f083b02d2" name="PostOrder"/>
     </flow>
 </mule>
