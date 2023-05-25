@@ -7,12 +7,13 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/current/mule-mongo.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<flow name="GetClients" doc:id="f59c1ca2-654a-4207-8b70-ef63096a5e06" >
-		<mongo:execute-command doc:name="Execute command" doc:id="53d26d35-2a41-4dc0-922d-0002e7f49e8b" config-ref="MongoDB_Config">
+		<mongo:execute-command doc:name="distinct client_id" doc:id="53d26d35-2a41-4dc0-922d-0002e7f49e8b" config-ref="MongoDB_Config">
 			<mongo:command ><![CDATA[#[%dw 2.0
 output application/json
 ---
 { 'distinct':'order','key':'client_id' }]]]></mongo:command>
 		</mongo:execute-command>
+		<logger level="INFO" doc:name="Logger" doc:id="1fdc3623-be8d-42dd-96f5-acd0bdaffee4" message="#[payload]"/>
 		<ee:transform doc:name="get values only" doc:id="7d43801d-ac2c-4772-98c2-53dd54f21ce6"> 
 <ee:message> 
 <ee:set-payload ><![CDATA[%dw 2.0 
@@ -26,6 +27,7 @@ payload.values
 	<flow name="PostOrder" doc:id="b8ac8db7-678f-4003-978e-3e7f02ab57ea" >
 		<mongo:insert-document collectionName="order" doc:name="Insert  new order" doc:id="fa2c5f4c-b71d-4d1a-a6b3-0a628930a8f2" config-ref="MongoDB_Config">
 		</mongo:insert-document>
+		<logger level="INFO" doc:name="Logger" doc:id="16d032a5-a109-4718-808e-194493dfd706" message="#[payload]"/>
 	</flow>
 	<flow name="GetOrdersByClientID" doc:id="e01b8019-5373-454f-925f-9946a87c191d" >
 		<mongo:find-documents collectionName="order" doc:name="Find orders by client_id" doc:id="cbaf34fa-c2f0-435d-bd36-dc7ca85bfb27" config-ref="MongoDB_Config" fields="order_id,client_id,articles,alerts,file_64">
@@ -36,6 +38,7 @@ output application/json
 	"client_id": attributes.queryParams.'client_id'
 }]]]></mongo:query>
 		</mongo:find-documents>
+		<logger level="INFO" doc:name="Logger" doc:id="3ed583fc-e6cc-414c-bcf5-d7786544216a" message="#[payload]"/>
 		<ee:transform doc:name="get values" doc:id="95e50947-5f23-4ca6-a7bb-a42b7f8f5cd0" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -57,6 +60,7 @@ output application/json
 	"order_id":attributes.uriParams.'OID' 
 }]]]></mongo:query>
 		</mongo:find-documents>
+		<logger level="INFO" doc:name="Logger" doc:id="2bc4600a-bcfa-42d1-bc37-47981aafd69b" message="#[payload]"/>
 		<ee:transform doc:name="get values" doc:id="b7ba8fca-7e3e-4fdb-8b57-5fb79ab79304" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0

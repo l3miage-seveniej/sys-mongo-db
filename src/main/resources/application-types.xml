@@ -480,13 +480,5 @@ type order = {|
       </types:input-event>
     </types:processor-declaration>
   </types:enrichment>
-  <types:enrichment select="#fa2c5f4c-b71d-4d1a-a6b3-0a628930a8f2">
-    <types:processor-declaration>
-      <types:input-event>
-        <types:message>
-          <types:payload type="order"/>
-        </types:message>
-      </types:input-event>
-    </types:processor-declaration>
-  </types:enrichment>
+  <types:enrichment select="#fa2c5f4c-b71d-4d1a-a6b3-0a628930a8f2"/>
 </types:mule>
